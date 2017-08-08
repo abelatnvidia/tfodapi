@@ -5,3 +5,5 @@
 *.nav
 *.log
 *.aux
+*.out
+*.synctex.gz
