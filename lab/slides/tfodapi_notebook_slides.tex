@@ -1,0 +1,168 @@
+\RequirePackage{luatex85}
+\documentclass[handout]{beamer}
+\setbeamertemplate{caption}[numbered]
+\usepackage{textpos}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+\lstset{language=C++,
+           basicstyle=\ttfamily\scriptsize,
+           keywordstyle=\color{blue}\ttfamily,
+           stringstyle=\color{red}\ttfamily,
+           commentstyle=\color{mygreen}\ttfamily,
+          breaklines=true,
+          captionpos=b,
+          numbers=left,
+          numbersep=5pt,
+          numberstyle=\tiny\color{mygray},
+          rulecolor=\color{black},
+          xleftmargin=\parindent,
+          frame=single,
+          backgroundcolor=\color{white}
+}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\definecolor{beamer@blendedblue}{rgb}{0,0,0}
+\setbeamercolor{structure}{fg=beamer@blendedblue}
+
+
+\title{Introduction to Object Detection with Convolution Neural Networks using the TensorFlow API}
+\author{
+	\includegraphics[width=3cm]{../../media/logo/NVLogo_2D.eps}
+	\vspace{0.75cm}
+	\\Abel Brown}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{200mm}(.75\textwidth,-0.35cm)
+\includegraphics[width=3cm]{../../media/logo/NVLogo_2D_H.eps}
+\end{textblock*}}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\section{What this lab is}
+\begin{frame}{What this lab is}
+\begin{itemize}
+\itemsep 1em
+	\item<>Get going fast!  
+	\item<>Leverage the Google Object Detection API in TensorFlow
+	\item<>Gain experience using state-of-the-art object detection network architectures and understand engineering trade-offs
+	\item<>Gain familiarity with the Microsoft COCO dataset
+	\item<>Build intuition and codes for evaluating detector performance
+\end{itemize}
+\end{frame}
+
+\section{What this lab is not}
+\begin{frame}{What this lab is not}
+\begin{itemize}
+\itemsep 1em
+	\item<>Not an intro to machine learning from first principles
+	\item<>Not a rigorous formalism of convolutional neural networks
+	\item<>Not a survey of all the features and options of TensorFlow
+\end{itemize}
+\end{frame}
+
+
+\section{What we hope you take away}
+\begin{frame}{Key Takeaways }
+\begin{itemize}
+\itemsep 1em
+	\item<>Baseline for state-of-the-art object detection w/ deep learning
+	\item<>Understanding of the complexities in evaluating performance
+	\item<>Familiarity with industry standard COCO dataset
+	\item<>Everything you need to start leveraging top performing deep learning based object detection models in your own work
+\end{itemize}
+\end{frame}
+
+\section{Object Detection API in TensorFlow}
+\begin{frame}{Object Detection API in TensorFlow}
+\begin{itemize}
+\itemsep 1em
+	\item<>The TensorFlow Object Detection API is an open source framework built on top of TensorFlow
+	\item<>This API makes it easy to construct, train and deploy object detection models
+	\item<>The API includes a selection of trainable detection models:
+	\begin{itemize}\setbeamertemplate{itemize items}[square]
+		\item<>Single Shot Multibox Detector (SSD) with MobileNets
+		\item<>SSD with Inception V2
+		\item<>Region-Based Fully Convolutional Networks (R-FCN) with Resnet 101
+		\item<>Faster RCNN with Resnet 101
+		\item<>Faster RCNN with Inception Resnet v2
+	\end{itemize}
+	\item<>All models have been pre-trained on the COCO dataset and are ready for use out-of-the-box
+	\item<>Convenient local training scripts included as well
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Object Detection API in TensorFlow}
+\begin{itemize}
+\itemsep 1em
+	\item<>The SSD models that use MobileNet are lightweight, so that they can be comfortably run in real time on mobile devices
+	\item<>The Faster RCNN models are much more computationally intensive but are significantly more accurate	
+\end{itemize}
+\end{frame}
+
+
+\section{The MSCOCO dataset}
+\begin{frame}{The Microsoft COCO Dataset}
+\begin{itemize}
+\itemsep 1em
+	\item<>In this lab we're going to use the Common Objects in Context (COCO) dataset from Microsoft .
+	\item<>COCO is a new image recognition, segmentation, and captioning dataset. COCO has several features:
+	\begin{itemize}\setbeamertemplate{itemize items}[square]
+		\item<>Object segmentation
+		\item<>Recognition in Context
+		\item<>Multiple objects per image
+		\item<>More than 300,000 images
+		\item<>More than 2 Million instances
+		\item<>80 object categories
+		\item<>5 captions per image
+		\item<>Keypoints on 100,000 people
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\section{Launching the Lab}
+\begin{frame}{Lets Get Started \ldots}
+\begin{itemize}
+\itemsep 1em
+	\item<>Navigate to \textcolor{blue}{nvlabs.qwiklab.com}\footnote{Chrome browser usually works best}
+	\item<>Login or create a new account
+	\item<>Select the \enquote{DLI Instructor-Led Labs? Class}
+	\item<>Find the lab called \enquote{Introduction to Object Detection with TensorFlow}, select it, click Select, and finally click Start
+	\item<>When prompted, enter your 16-digit token code
+	\item<>After a short wait, lab Connection information will be shown
+	\item<>Please ask Lab Assistants for help!
+\end{itemize}
+\end{frame}
+
+
+\end{document}
