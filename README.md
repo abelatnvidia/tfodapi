@@ -1,6 +1,6 @@
 # tfodapi
 
-Introduction to Object Detection with Convolution Neural Networks Using TensorFlow API
+Introduction to Object Detection with Convolution Neural Networks Using the TensorFlow API
 
 *Author: Abel Brown (abelb@nvidia.com)*
 
