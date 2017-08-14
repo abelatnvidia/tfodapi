@@ -13,10 +13,12 @@ Introduction to Object Detection with Convolution Neural Networks Using the Tens
 
 # Docker Build
   There is a Dockerfile included in the `lab` folder for to build a Docker image with all the required setup (TF, Jupyter, etc) for running the notebook.  You can build the Docker image with
+  
       `cd lab`
       `docker build -t foo:bar .`
 
   The the associated image can be run as a Docker container as with the command
+  
       `nvidia-docker run -p 8888:8888 foo:bar`
 
   When running the image, it is necessary to map port 8888 used by Jupyter Notebook server.
