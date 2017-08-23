@@ -84,11 +84,7 @@
 \end{frame}
 
 \begin{frame}{What is Image Segmentation?}
-\emph{In computer vision, image segmentation is the process of partitioning a digital image into multiple segments (sets of pixels, also known as super-pixels). The goal of segmentation is to simplify and/or change the representation of an image into something that is more meaningful and easier to analyze.  Image segmentation is typically used to locate objects and boundaries (lines, curves, etc.) in images}. \footnote{\href{https://en.wikipedia.org/wiki/Image_segmentation}{\color{blue}Wikipedia}}
-\end{frame}
-
-\begin{frame}{What is Image Segmentation?}
-\emph{More precisely, image segmentation is the process of assigning a label to every pixel in an image such that pixels with the same label share certain characteristics}.\footnote{\href{https://en.wikipedia.org/wiki/Image_segmentation}{\color{blue}Wikipedia}}
+\emph{In computer vision, image segmentation is the process of partitioning a digital image into multiple segments (sets of pixels, also known as super-pixels). The goal of segmentation is to simplify and/or change the representation of an image into something that is more meaningful and easier to analyze.  Image segmentation is typically used to locate objects and boundaries (lines, curves, etc.) in images.  More precisely, image segmentation is the process of assigning a label to every pixel in an image such that pixels with the same label share certain characteristics}. \footnote{\href{https://en.wikipedia.org/wiki/Image_segmentation}{\color{blue}Wikipedia}}
 \end{frame}
 
 \begin{frame}{Generic Detection and Segmentation}
@@ -210,7 +206,7 @@ Given an input tensor of size $CxHxW$ constructed from pixel values of some imag
 	\item<3->aggregate results from all regions to form final answer/result/output for the image
   \end{itemize}
   \item<4->Even early DL based algorithms shared this structure (Overfeat, R-CNN, etc)
-  \item<5->Recently, some successful \emph{single-stage} DL approaches 
+  \item<5->Recently, some successful \emph{single-stage} DL approaches (\href{https://arxiv.org/abs/1704.05776}{\color{blue}RRC})
 \end{itemize}
 \end{frame}
 
@@ -249,7 +245,7 @@ Given an input tensor of size $CxHxW$ constructed from pixel values of some imag
 	\item<3->Not really scale invariant
 		\begin{itemize}\setbeamertemplate{itemize items}[square]
 			\item<1->Early datasets not very large so limited feature variation
-			\item<2->Now training datasets are many TB -- helps but does not solve
+			\item<2->Now training datasets are many TB\footnote{terabyte} -- helps but doesn't solve\footnote{That is, large dataset likely has many scale variations of same object}
 			\item<3->Large variation of feature scale can inflate false-negative rates
 		\end{itemize}
 \end{itemize}
