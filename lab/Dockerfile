@@ -13,7 +13,7 @@ RUN mkdir -p /dli && cd /dli && git clone https://github.com/abelatnvidia/tfodap
 WORKDIR /dli/tfodapi/lab
 
 # get the coco annotations
-RUN mkdir coco && cd coco && wget --quiet http://msvocds.blob.core.windows.net/annotations-1-0-3/instances_train-val2014.zip && unzip instances_train-val2014.zip  && cd ..
+RUN mkdir coco && cd coco && wget --quiet http://images.cocodataset.org/annotations/annotations_trainval2017.zip && unzip annotations_trainval2017.zip && cd ..
 
 # get the TensorFlow Object Detection API
 RUN git clone https://github.com/tensorflow/models.git
